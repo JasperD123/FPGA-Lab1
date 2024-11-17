@@ -1,0 +1,25 @@
+module full_adder(
+   input                A   ,
+   input                B   ,
+   input                Ci  , 
+ 
+   output	wire        S   ,
+   output   wire        Co   
+);
+    wire [1:0] s, c;
+    
+    half_adder m1 (
+        .A(A),
+        .B(B),
+        .sum(s[0]),
+        .C(c[0]));
+    
+    half_adder m2 (
+        .A(s[0]),
+        .B(Ci),
+        .sum(s[1]),
+        .C(c[1]));
+    
+    assign S = s[1];
+    assign Co = c[0] | c[1];
+endmodule
