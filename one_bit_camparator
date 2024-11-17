@@ -1,0 +1,11 @@
+module one_bit_camparator(
+input wire A , // 1st input 
+input wire B, // 2nd 
+output reg [2:0] C // output
+);
+always@(*)
+if(A<B) C=3'b110;
+else if(A==B) C=3'b101;
+else if(A>B) C=3'b011;
+else C=3'b111;
+endmodule
